@@ -1,11 +1,9 @@
-import { env } from 'node:process';
-
 const parseEnv = () => {
   let result = '';
 
-  for (let envKey in env) {
+  for (let envKey in process.env) {
     if (envKey.startsWith('RSS')) {
-      result += `${envKey}=${env[envKey]}; `;
+      result += `${envKey}=${process.env[envKey]}; `;
     }
   }
 
