@@ -17,3 +17,11 @@ const echoInput = (chunk) => {
 };
 
 stdin.on('data', echoInput);
+
+process.stdin.setEncoding('utf-8');
+
+process.stdin.on('data', (data) => {
+  console.log('Sending data back to master process');
+  process.send(data);
+  process.exit(0);
+});
