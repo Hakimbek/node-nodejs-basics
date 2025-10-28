@@ -7,7 +7,7 @@ const write = async () => {
   process.stdin.on('data', data => {
     const stream = createWriteStream(PATH)
     stream.write(data)
-    stdin.pause()
+    process.stdin.pause()
     console.log('Finished successfully')
   })
 };
